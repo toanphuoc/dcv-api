@@ -17,7 +17,7 @@ public class CategoriDaoImpl extends ConnectionManager implements CategoriDao {
 	
 	@Override
 	public List<Category> listCategory() {
-		String sql = "SELECT id, name, trademark_id FROM categories ORDER BY name";
+		String sql = "CALL getCategories()";
 		RowMapper<Category> mapper = new RowMapper<Category>() {
 			
 			@Override
@@ -35,7 +35,7 @@ public class CategoriDaoImpl extends ConnectionManager implements CategoriDao {
 
 	@Override
 	public List<Category> listCategoryByTrademark(int trademarkId) {
-		String sql = "SELECT id, name, trademark_id FROM categories WHERE trademark_id = ? ORDER BY name";
+		String sql = "CALL getCategoriesByTrademark(?)";
 		RowMapper<Category> mapper = new RowMapper<Category>() {
 			
 			@Override
@@ -53,7 +53,7 @@ public class CategoriDaoImpl extends ConnectionManager implements CategoriDao {
 
 	@Override
 	public Category getCategoryById(int id) {
-		String sql  = "SELECT id, name, trademark_id FROM categories WHERE id = ?";
+		String sql  = "CALL getCategoryById(?)";
 		RowMapper<Category> mapper = new RowMapper<Category>() {
 			
 			@Override

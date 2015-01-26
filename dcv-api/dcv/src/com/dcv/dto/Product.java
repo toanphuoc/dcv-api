@@ -7,6 +7,8 @@ public class Product {
 	private String date_created;
 	private String decription;
 	private double price;
+	private Trademark trademark;
+	private Category category;
 	public int getId() {
 		return id;
 	}
@@ -36,5 +38,17 @@ public class Product {
 	}
 	public void setPrice(double price) {
 		this.price = price;
+	}
+	public Trademark getTrademark() {
+		return trademark;
+	}
+	public void setTrademark(Trademark trademark) {
+		this.trademark = trademark;
+	}
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 }
