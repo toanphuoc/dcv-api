@@ -12,4 +12,11 @@ public interface ProductImageDao {
 	 * @return
 	 */
 	public List<ProductImage> getProductImageOfProduct(int productId);
+	
+	/**
+	 * get main image of product
+	 * @param productId
+	 * @return
+	 */
+	public ProductImage getMainImageOfProduct(int productId);
 }

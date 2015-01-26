@@ -12,4 +12,11 @@ public interface ProductImageService {
 	 * @return
 	 */
 	public List<ProductImage> getProductImageOfProduct(int productId);
+	
+	/**
+	 * 
+	 * @param productId
+	 * @return
+	 */
+	public ProductImage getMainImageOfProduct(int productId);
 }

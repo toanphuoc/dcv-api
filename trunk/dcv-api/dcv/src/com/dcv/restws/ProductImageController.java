@@ -12,4 +12,5 @@ public interface ProductImageController {
 	 * @return
 	 */
 	public List<ProductImage> getProductImageOfProduct(int productId);
+	
 } 

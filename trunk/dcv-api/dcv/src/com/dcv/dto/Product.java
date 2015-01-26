@@ -9,6 +9,8 @@ public class Product {
 	private double price;
 	private Trademark trademark;
 	private Category category;
+	private String image;
+	
 	public int getId() {
 		return id;
 	}
@@ -50,5 +52,11 @@ public class Product {
 	}
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 }
