@@ -1,0 +1,39 @@
+body{
+	background: #010101 url(../../images/background.jpg) 50% 0px repeat;
+}
+
+#admin .login-form{
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 150px;
+	background: url(../../images/opa_50.png);
+	padding: 20px 20px 30px 20px;
+	border-radius: 5px;
+}
+
+#admin .login-form span{
+	color: #fff;
+	color: #FFB03A;
+	display: block;
+	margin: 0px 0 5px 0px;
+
+}
+
+#admin .login-form input{
+	height: 30px;
+	background-color: transparent;
+	color: #fff;
+}
+
+#admin .login{
+	background-color: #B24733;
+	color: #000;
+	height: 35px;
+	line-height: 13px;
+	font-size: 16px;
+	width: 100%;
+	margin-top: 5px;
+	border: none;
+	border-radius: 5px;
+	font-weight: 700;
+}
