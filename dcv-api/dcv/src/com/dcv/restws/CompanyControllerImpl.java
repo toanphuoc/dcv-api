@@ -31,7 +31,8 @@ public class CompanyControllerImpl implements CompanyController{
 	@Override
 	@RequestMapping( value = "/update", method = RequestMethod.POST)
 	@ResponseBody
-	public Response updateCompany(@RequestParam(value="name", required=false) String name,@RequestParam( value="address", required=false) String address,
+	public Response updateCompany(@RequestParam(value="name", required=false) String name,
+								@RequestParam( value="address", required=false) String address,
 								@RequestParam( value="tel", required=false) String tel,
 								@RequestParam(value="fax", required=false) String fax,
 								@RequestParam(value="email", required=false) String email) {

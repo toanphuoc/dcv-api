@@ -19,14 +19,15 @@ import com.dcv.service.ProductImageService;
 @RequestMapping(value = "image")
 public class ProductImageControllerImpl implements ProductImageController{
 
-	@Autowired
-	private ProductImageService productImageService;
+	//@Autowired
+	//private ProductImageService productImageService;
 	
 	@Override
 	@RequestMapping(value = "/lstImage/{productId}", method=RequestMethod.GET)
 	@ResponseBody
 	public List<ProductImage> getProductImageOfProduct(@PathVariable("productId") int productId) {
-		return productImageService.getProductImageOfProduct(productId);
+		//return productImageService.getProductImageOfProduct(productId);
+		return null;
 	}
 
 }
