@@ -1,6 +1,7 @@
 var dcvApp = angular.module('dcvApp', [
   'ngRoute',
-  'dcvController'
+  'dcvController', 
+  'dcvServices'
 ]);
 
 dcvApp.config(['$routeProvider', function($routeProvider) {
