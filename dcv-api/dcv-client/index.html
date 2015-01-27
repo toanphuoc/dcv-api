@@ -14,20 +14,20 @@
 </head>
 <body>
 	<div class="content">
-		<div id="header">
+		<div id="header" ng-controller="SiteMasterCtrl">
 			<div class="header-top">
 				<span class="pull-right">
-					<span class="tel" style="margin-right: 10px;"><span>Tel:</span> 0126 121 4562</span>
+					<span class="tel" style="margin-right: 10px;"><span>Tel:</span><span  style="color:#22ACE2; font-weight: normal;"> {{company.telephone}}</span></span>
 					<span class="fax">
 						<span>Fax:</span>
-						<span style="color:#22ACE2; font-weight: normal;"> (08) 3123 345</span>
+						<span style="color:#22ACE2; font-weight: normal;"> {{company.fax}}</span>
 					</span>
 				</span>
 				<div class="clearfix"></div>
 			</div>
 			<div class="header-body">
 				<div class="pull-left logo">
-					<a href="" title="">
+					<a href="#/" title="">
 						<img src="images/logo.png" alt="">
 					</a>
 				</div>
@@ -43,7 +43,7 @@
 			<div class="menu">
 				<ul>
 					<li>
-						<a href="" title="" class="home">TRANG CHỦ</a>
+						<a href="#/" title="" class="home">TRANG CHỦ</a>
 					</li>
 					<li>
 						<a href="" title="" class="trademark">THƯƠNG HIỆU</a>
@@ -111,30 +111,68 @@
 			</div>
 		</div>
 		<!-- footer -->
-		<div id="footer" class="row">
+		<div id="footer" class="row" ng-controller="SiteMasterCtrl">
 			<div class="col-md-2">
 				
 			</div>
 			<div class="col-md-6" style="padding-left:40px;">
-				<span class="name">CÔNG TY TNHH NỘI THẤT ĐẠI CỒ VIỆT</span>
-				<span class="address"><span style="display: inline-block; font-weight:bold;">Địa chỉ:</span> 234 Nguyễn Trãi, Phường 5, Quận 5, TP. Hồ Chí Minh</span>
+				<span class="name">{{company.name}}</span>
+				<span class="address"><span style="display: inline-block; font-weight:bold;">Địa chỉ:</span> {{company.address}}</span>
 				<span class="email">
-					<span style="display: inline-block; font-weight:bold;">Email:</span> noithatdcv@gmail.com
+					<span style="display: inline-block; font-weight:bold;">Email:</span> {{company.email}}
 				</span>
 				<span class="tel">
-					<span style="display: inline-block; font-weight:bold;">Tel:</span> 090 3412 123
-					<span style="display: inline-block; font-weight:bold; margin-left:20px;">Fax:</span> (08) 3123 121
+					<span style="display: inline-block; font-weight:bold;">Tel:</span>
+					<span ng-bind="company.telephone"></span>
+					<span style="display: inline-block; font-weight:bold; margin-left:20px;">Fax:</span> {{company.fax}}
 				</span>
 			</div>
 			<div class="col-md-3">
 				<span class="name" style="color: #656666;">Liên hệ</span>
 				<a class="address" href="#">Giới thiệu</a>
 				<a class="address" href="#">Hô trợ</a>
-				<a class="address">Email us</a>
+				<a class="address" href="mailto:{{company.email}}">Email us</a>
+			</div>
+			<div class="panel_right">
+				<div class="item">
+					<img src="images/facebook-like.png" alt="" style="width: 35px;"><br>
+					<span>2.211 likes</span>
+				</div>
+
+				<div class="item" ng-click="support();" style="cursor: pointer;">
+					<img src="images/support.png" alt=""><br>
+					<span>YÊU CẦU</span>
+				</div>
+
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="js/base.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/controller.js"></script>
+	<script type="text/javascript" src="js/services.js"></script>
 </body>
 </html>
+
+<div class="modal fade" id="suportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-dialog" style="width: 35%;">
+	    <div class="modal-content suport-swap">
+	      	<div class="modal-header" style="border-bottom:none;">
+	        	
+	      	</div>
+	      	<div class="modal-body body">
+	        	<span>Full name</span>
+	        	<input type="text" class="form-control" name="" value="" placeholder="">
+	        	<span style="margin-top:15px;">Email</span>
+	        	<input type="text" class="form-control" name="" value="" placeholder="">
+
+	        	<span style="margin-top:15px;">Content</span>
+	        	<textarea class="form-control content-suport"></textarea>
+	      	</div>
+	      	<div class="modal-footer footer">
+	        	<button type="button" class="btn cancel" data-dismiss="modal">Close</button>
+	        	<button type="button" class="btn default" >Suport</button>
+	      	</div>
+	    </div>
+  	</div>
+</div>
