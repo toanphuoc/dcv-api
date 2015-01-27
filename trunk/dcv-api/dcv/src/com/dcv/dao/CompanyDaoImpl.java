@@ -19,6 +19,7 @@ public class CompanyDaoImpl extends ConnectionManager implements CompanyDao{
 			@Override
 			public Company mapRow(ResultSet rs, int arg1) throws SQLException {
 				Company company = new Company();
+				company.setId(rs.getInt("id"));
 				company.setName(rs.getString("name"));
 				company.setAddress(rs.getString("address"));
 				company.setTelephone(rs.getString("telephone"));
@@ -36,8 +37,8 @@ public class CompanyDaoImpl extends ConnectionManager implements CompanyDao{
 	@Override
 	public boolean updateCompany(String name, String address, String telephone,
 			String fax, String email) {
-		String sql = "CALL updateCompany(?,?,?,?,?)";
-		return jdbcTemplate.update(sql, name, address, telephone, fax, email) == 1;
+		String sql = "CALL updateCompany(?,?,?,?,?, ?)";
+		return jdbcTemplate.update(sql, name, address, telephone, fax, email, 1) == 1;
 	}
 
 }

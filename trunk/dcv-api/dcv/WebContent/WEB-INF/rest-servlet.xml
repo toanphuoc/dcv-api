@@ -79,5 +79,5 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<bean id="categoriService" class="com.dcv.service.CategoriServiceImpl" scope="prototype"></bean>
 	<bean id="companyService" class="com.dcv.service.CompanyServiceImpl" scope="prototype"></bean>
 	<bean id="productService" class="com.dcv.service.ProductServiceImpl" scope="prototype"></bean>
-	<bean id="productImageService" class="com.dcv.service.ProductImageServiceImpl" scope="prototype"></bean>
+	<!-- <bean id="productImageService" class="com.dcv.service.ProductImageServiceImpl" scope="prototype"></bean> -->
 </beans>
