@@ -1,6 +1,8 @@
 package com.dcv.service;
 
-import com.dcv.model.Response;
+import java.util.Map;
+
+import com.dcv.dto.User;
 
 public interface UserService {
 
@@ -10,5 +12,5 @@ public interface UserService {
 	 * @param password
 	 * @return
 	 */
-	public Response login(String userName, String password);
+	public Map<String, Object> login(String userName, String password);
 }

@@ -1,6 +1,10 @@
 package com.dcv.restws;
 
-import com.dcv.model.Response;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import com.dcv.dto.User;
 
 public interface UserController {
 
@@ -10,5 +14,5 @@ public interface UserController {
 	 * @param password
 	 * @return
 	 */
-	public Response login(String userName, String password);
+	public Map<String, Object> login(String userName, String password);
 }

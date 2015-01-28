@@ -11,4 +11,19 @@ public interface UserDao {
 	 * @return
 	 */
 	public User login(String userName, String password);
+	
+	/**
+	 * Insert access token
+	 * @param userId
+	 * @param accessToken
+	 * @return
+	 */
+	public boolean insertAccessToken(int userId, String accessToken);
+	
+	/**
+	 * update lasted login
+	 * @param userId
+	 * @return
+	 */
+	public boolean updateLastedLogin(int userId);
 }
