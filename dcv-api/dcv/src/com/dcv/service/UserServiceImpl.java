@@ -1,11 +1,15 @@
 package com.dcv.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.dcv.dao.UserDao;
 import com.dcv.dto.User;
-import com.dcv.model.Response;
 import com.dcv.security.Security;
+import com.dcv.until.Base64Utils;
+import com.dcv.until.StringUtil;
 
 public class UserServiceImpl implements UserService{
 
@@ -13,19 +17,31 @@ public class UserServiceImpl implements UserService{
 	private UserDao userDao;
 	
 	@Override
-	public Response login(String userName, String password) {
+	public Map<String, Object> login(String userName, String password) {
 		password = Security.encrypSHA256(password);
+		String accessToken = null;
 		User user = userDao.login(userName, password);
-		Response rp = new Response();
 		if(user == null){
-			rp.setStatus(false);
-			rp.setMessage("Tên đăng nhập hoặc mật khẩu không chính xác");
+			return resultLogin(false, accessToken, null, user);
 		}else{
-			rp.setStatus(true);
-			rp.setMessage("Login successfully");
-			rp.setData(user);
+			accessToken = Base64Utils.encode(String.valueOf(user.getId()))
+					+ StringUtil.randomString(10);
+			if(!userDao.insertAccessToken(user.getId(), accessToken)){
+				accessToken = null;
+				return resultLogin(false, accessToken, null, user);
+			}
+			userDao.updateLastedLogin(user.getId());
+			return resultLogin(true, accessToken, "", user);
 		}
-		return rp;
+	}
+	
+	private Map<String, Object> resultLogin(boolean success, String accessToken, String message, User user){
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("success", success);
+		map.put("accessToken", accessToken);
+		map.put("message", message);
+		map.put("clientAccess", true);
+		return map;
 	}
 
 	

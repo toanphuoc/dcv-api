@@ -31,4 +31,16 @@ public class UserDaoImpl extends ConnectionManager implements UserDao{
 		return null;
 	}
 
+	@Override
+	public boolean insertAccessToken(int userId, String accessToken) {
+		String sql = "CALL insertAccessToken(?, ?)";
+		return jdbcTemplate.update(sql, userId, accessToken) == 1;
+	}
+
+	@Override
+	public boolean updateLastedLogin(int userId) {
+		String sql = "CALL updateLastedLogin(?)";
+		return jdbcTemplate.update(sql, userId) == 1;
+	}
+
 }
