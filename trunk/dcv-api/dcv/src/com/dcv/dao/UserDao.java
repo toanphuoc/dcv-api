@@ -26,4 +26,12 @@ public interface UserDao {
 	 * @return
 	 */
 	public boolean updateLastedLogin(int userId);
+	
+	/**
+	 * Logout
+	 * @param accessToken
+	 * @return
+	 */
+	public boolean logout(String accessToken);
+	
 }

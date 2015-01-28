@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import com.dcv.dto.User;
+import com.dcv.model.Response;
 
 public interface UserController {
 
@@ -15,4 +16,11 @@ public interface UserController {
 	 * @return
 	 */
 	public Map<String, Object> login(String userName, String password);
+	
+	/**
+	 * 
+	 * @param accessToken
+	 * @return
+	 */
+	public Response logout(String accessToken);
 }

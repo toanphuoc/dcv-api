@@ -43,4 +43,10 @@ public class UserDaoImpl extends ConnectionManager implements UserDao{
 		return jdbcTemplate.update(sql, userId) == 1;
 	}
 
+	@Override
+	public boolean logout(String accessToken) {
+		String sql = "CALL deleteAccessToken(?)";
+		return jdbcTemplate.update(sql, accessToken) == 1;
+	}
+
 }

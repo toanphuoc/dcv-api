@@ -3,6 +3,7 @@ package com.dcv.service;
 import java.util.Map;
 
 import com.dcv.dto.User;
+import com.dcv.model.Response;
 
 public interface UserService {
 
@@ -13,4 +14,11 @@ public interface UserService {
 	 * @return
 	 */
 	public Map<String, Object> login(String userName, String password);
+	
+	/**
+	 * 
+	 * @param accessToken
+	 * @return
+	 */
+	public Response logout(String accessToken);
 }
