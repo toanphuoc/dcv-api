@@ -1,0 +1,23 @@
+<div id="profile">
+	<h4 style="color:#FFA12A;">ĐỔI MẬT KHẨU</h4>
+	<div class="row">
+		<div class="col-md-4" style="text-align: left; padding:0px;">
+			<span class="p">Tên đăng nhập</span>
+			<span class="p">Mật khẩu cũ</span>
+			<span class="p">Mật khẩu mới</span>
+			<span class="p">Nhập lại mật khẩu mới</span>
+		</div>
+		<div class="col-md-8" style="text-align:left; padding:0px;">
+			<input type="text" class="form-control" name="" value="{{user}}" placeholder="" readonly="" style="margin-right: 10px;">
+			<input type="password" class="form-control old-password" name="" value="" placeholder="" alt="dsadas">
+			<span class="validate hide">*</span>
+			<input type="password" class="form-control new-password" name="" value="" placeholder="">
+			<span class="validate hide">*</span><span class="glyphicon glyphicon-question-sign help" data-toggle="tooltip" data-placement="bottom" title="Mật khẩu phải chứa chữ thường, chữ in hoa, số và ít nhất 6 ký tự"></span>
+			<input type="password" class="form-control confirm-new-password" name="" value="" placeholder="">
+			<span class="validate hide">*</span>
+		</div>
+		
+	</div>
+	<input type="submit" class="save" name="" value="Lưu" ng-click="save();">
+	
+</div>
