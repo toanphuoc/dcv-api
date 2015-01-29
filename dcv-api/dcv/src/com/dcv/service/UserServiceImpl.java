@@ -65,5 +65,30 @@ public class UserServiceImpl implements UserService{
 		return rp;
 	}
 
+	@Override
+	public Map<String, Object> changePassword(String accessToken, String oldPassword, String newPassword) {
+		User user = userDao.getUserByAccessToken(accessToken);
+		Map<String, Object> map  = new HashMap<String, Object>();
+		if(user  != null){
+			if(!user.getPassword().equals(Security.encrypSHA256(oldPassword))){
+				map.put("result", 2);
+				map.put("message", "Old password incorrecct");
+			}else{
+				boolean rs = userDao.changePassword(user.getId(), Security.encrypSHA256(newPassword));
+				if(rs){
+					map.put("result", 0);
+					map.put("message", "Change success");
+				}else{
+					map.put("result", 3);
+					map.put("message", "Change fail");
+				}
+			}
+		}else{
+			map.put("result", 1);
+			map.put("message", "Invalid token");
+		}
+		return map;
+	}
+
 	
 }

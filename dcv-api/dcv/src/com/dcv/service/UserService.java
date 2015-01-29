@@ -21,4 +21,11 @@ public interface UserService {
 	 * @return
 	 */
 	public Response logout(String accessToken);
+	
+	/**
+	 * Change password
+	 * @param accessToken
+	 * @return
+	 */
+	public Map<String, Object> changePassword(String accessToken, String oldPassword, String newPassword);
 }

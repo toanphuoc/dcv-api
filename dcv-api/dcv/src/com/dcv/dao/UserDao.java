@@ -34,4 +34,19 @@ public interface UserDao {
 	 */
 	public boolean logout(String accessToken);
 	
+	/**
+	 *  
+	 * @param accessKen
+	 * @return
+	 */
+	public User getUserByAccessToken(String accessToken);
+	
+	/**
+	 * Change password
+	 * @param userId
+	 * @param newPassword
+	 * @return
+	 */
+	public boolean changePassword(int userId, String newPassword);
+	
 }
