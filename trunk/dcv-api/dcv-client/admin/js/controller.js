@@ -21,10 +21,11 @@ dcvController.controller('HeaderController', ['$scope', 'CompanyService', 'UserS
 }]);
 
 
-dcvController.controller('ProfileCtrl', ['$scope', function($scope){
+dcvController.controller('ProfileCtrl', ['$scope', 'UserService', function($scope, UserService){
 	$scope.user = USER;
 
 	$scope.save = function(){
+
 		var oldPass = $('#profile .old-password').val();
 		var newPass = $('#profile .new-password').val();
 		var confirmNewPassword = $('#profile .confirm-new-password').val();
@@ -37,7 +38,7 @@ dcvController.controller('ProfileCtrl', ['$scope', function($scope){
 			$('#profile .old-password').next().addClass('hide');
 		}
 
-		if(newPass == ''){
+		if(newPass == '' || newPass.length < 6){
 			$('#profile .new-password').focus();
 			$('#profile .new-password').next().removeClass('hide');
 			return;
@@ -53,9 +54,22 @@ dcvController.controller('ProfileCtrl', ['$scope', function($scope){
 			$('#profile .confirm-new-password').next().addClass('hide');
 		}
 
-		console.log(oldPass);
-		console.log(newPass);
-		console.log(confirmNewPassword);
+		UserService.changePassword(ACCESS_TOKEN, oldPass, newPass).then(function(result){
+			var rs = result.data.result;
+			if(rs == 2){
+				$('#profile .old-password').focus();
+				$('#profile .old-password').next().removeClass('hide');
+				$('#profile .msg').removeClass('hide').removeClass('msg-success').text('Mật khẩu cũ không đúng');
+				setTimeout(function(){
+					$('#profile .msg').addClass('hide');
+				}, 3000);
+			}else if(rs == 0){
+				$('#profile .msg').removeClass('hide').addClass('msg-success').text('Thay đổi mật khẩu thành công');
+				setTimeout(function(){
+					$('#profile .msg').addClass('hide');
+				}, 3000);
+			}
+		});
 
 
 	}

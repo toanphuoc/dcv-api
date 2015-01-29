@@ -39,9 +39,13 @@ body{
 }
 
 .msg{
-	color: #FFB3B5 !important;
+	color: #FFB3B5;
 	font-size: 12px;
 	display: block;
+}
+
+.msg-success{
+	color: green;
 }
 
 #profile{
