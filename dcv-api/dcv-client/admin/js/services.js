@@ -28,7 +28,16 @@ dcvServices.factory('UserService', ['$http', function($http){
 	};
 
 	factory.changePassword = function(access_token, old_pass, new_password){
-		
+		return $http({
+			url: BASE_URL + 'user/changePassword',
+			method: 'POST',
+			data: $.param({
+				access_token: access_token,
+				old_pass: old_pass,
+				new_pass: new_password
+			}),
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+		});
 	};
 
 	return factory;
