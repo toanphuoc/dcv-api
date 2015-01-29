@@ -23,4 +23,13 @@ public interface UserController {
 	 * @return
 	 */
 	public Response logout(String accessToken);
+	
+	/**
+	 * 
+	 * @param accessToken
+	 * @param oldPass
+	 * @param newPass
+	 * @return
+	 */
+	public Map<String , Object> changePassword(String accessToken, String oldPass, String newPass);
 }

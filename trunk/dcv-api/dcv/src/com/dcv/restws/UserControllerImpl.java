@@ -3,6 +3,7 @@ package com.dcv.restws;
 import java.util.Map;
 
 import javax.jws.WebService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,6 +36,14 @@ public class UserControllerImpl implements UserController{
 	@ResponseBody
 	public Response logout(@RequestParam(value="access_token") String accessToken) {
 		return userService.logout(accessToken);
+	}
+
+	@Override
+	@RequestMapping(value = "/changePassword", method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> changePassword(@RequestParam(value="access_token") String accessToken,
+			@RequestParam(value="old_pass") String oldPass, @RequestParam(value="new_pass") String newPass) {
+		return userService.changePassword(accessToken, oldPass, newPass);
 	}
 
 }
